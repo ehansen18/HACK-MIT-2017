@@ -28,6 +28,11 @@ clock = pygame.time.Clock()
 
 carImg = pygame.image.load('nemo-icon.png')
 
+def quitgame():
+    pygame.quit()
+    quit()
+
+
 def things_dodged(count):
     font = pygame.font.SysFont(None, 25)
     text = font.render("Dodged: "+str(count), True, black)
@@ -60,30 +65,31 @@ def message_display(text):
     game_loop()
 
 
+def button(msg,x,y,w,h,ic,ac, action=None):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    print(click)
+
+#this creates the buttons, and also makes it so when you click on the green button, it changes colors
+    if x+w > mouse[0] > x and y+h > mouse[1] > y:
+        pygame.draw.rect(gameDisplay, bright_green,(x,y,w,h))
+
+        if click[0] == 1 and action != None:
+            action()
+    else:
+        pygame.draw.rect(gameDisplay, ic,(x,y,w,h))
+
+        smallText = pygame.font.SysFont("comicsanms", 15)
+        textSurf, textRect = text_objects(msg, smallText)
+        textRect.center = ((x+(w/2)), (y+(h/2)))
+        gameDisplay.blit(textSurf, textRect)
 
 def crash():
     message_display('Your adventure has lead to your untimely demise.')
 
 def game_intro():
     intro = True
-    def button(msg,x,y,w,h,ic,ac,action=None):
-        mouse = pygame.mouse.get_pos()
-        click = pygame.mouse.get_pressed()
-        print(click)
 
-        #this creates the buttons, and also makes it so when you click on the green button, it changes colors
-        if x+w > mouse[0] > x and y+h > mouse[1] > y:
-            pygame.draw.rect(gameDisplay, bright_green,(x,y,w,h))
-
-            if click[0] == 1 and action != None:
-                action()
-        else:
-            pygame.draw.rect(gameDisplay, ic,(x,y,w,h))
-
-        smallText = pygame.font.SysFont("comicsanms", 15)
-        textSurf, textRect = text_objects(msg, smallText)
-        textRect.center = ((x+(w/2)), (y+(h/2)))
-        gameDisplay.blit(textSurf, textRect)
     while intro:
         for event in pygame.event.get():
             print(event)
@@ -98,7 +104,7 @@ def game_intro():
         gameDisplay.blit(TextSurf,TextRect)
 
         button("Begin",150,450,100,50,green,bright_green,game_loop)
-        button("Quit",550,450,100,50,red,bright_red,pygame.quit())
+        button("Quit",550,450,100,50,red,bright_red,quitgame)
 
 
         pygame.display.update()
