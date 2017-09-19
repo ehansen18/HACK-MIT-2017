@@ -1,6 +1,6 @@
 # HACK-MIT-2017
-Emily Hansen and Melanie Nesteruk project for HACK MIT 2017.
+Emily Hansen's project for HACK MIT 2017.
 This code is from a tutorial https://pythonprogramming.net/pygame-button-function-events/?completed=/pygame-button-function/
-We planned on highly modifying it to customize it for our purpose. This was our first time using pygames so we used this as a guide, however the time crunch did not allow us to truly edit it to our purposes. 
+My partner and I had planned on highly modifying it to customize it for our purpose. This was our first time using pygames so we used this as a guide, however the time crunch did not allow us to truly edit it to our purposes. 
 
 This is my first hackathon. Our goal was to create a story telling game. The beginning interface would make it so a player could choose their character. They would then be presented with options of what can happen next in the game. They would have to rate which one they liked most. Then they would be prompted to play the game to continue the adventure. Each time they lost the game their top most choice would be discarded til their was one option on how they could continue their story. If they won they would have the story continuation of their choice, and then continue on the game to another game and story choice level. This would continue until the story (and games) end. We had planned on using the https://s Yapandbox.amadeus.com/api-catalog YapQ Geosearch api to create the backgrounds for the game and pick the location of the stories. The constant downs in Wifi took away hours of coding potential and we were sadly unable to achieve our dream story game (which we named Good Goober Adventures).
